@@ -20,8 +20,8 @@ public class CheckForAFKRunnable implements Runnable {
 		Long sinceLastCheck = plugin.getCurrentTime() - plugin.playerActivityDB.get("activity_counter_123");
 		plugin.playerActivityDB.replaceAll((name, time) -> time + sinceLastCheck);
 		for (Entry<String, Long> entry: plugin.playerActivityDB.entrySet()) {
-		//	plugin.log.info("Checking player " + entry.getKey() + ", they're current time away is: " + entry.getValue());
-		 //   plugin.log.info("Player is currently: " + plugin.isAFK(entry.getKey()));
+			plugin.log.info("Checking player " + entry.getKey() + ", they're current time away is: " + entry.getValue());
+		    plugin.log.info("Player is currently: " + plugin.isAFK(entry.getKey()));
 			if(entry.getValue() > 300) {
 				plugin.setAFK(entry.getKey(), true);
 			}
